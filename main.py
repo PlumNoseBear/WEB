@@ -16,14 +16,8 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/',  methods=['GET', 'POST'])
-def index():
-    play_files = os.listdir(app.config['UPLOAD_FOLDER'])
-    return render_template('index.html', files=play_files)
-
 @app.route('/',  methods=['GET', 'POST'])  
-def upload_file():
-    
+def upload_file():   
     if request.method == 'POST':
         # проверим, передается ли в запросе файл 
         if 'file' not in request.files:
@@ -43,8 +37,9 @@ def upload_file():
             # сохраняем файл
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
             return redirect(url_for('/success'))
+    play_files = os.listdir(app.config['UPLOAD_FOLDER'])
+    return render_template('index.html', files=play_files)
     
-    return render_template('index.html')
   
 def download_file():
   ...
