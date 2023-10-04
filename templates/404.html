@@ -1,0 +1,18 @@
+  <head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}"
+  </head>
+{% extends "base.html" %}
+{% block content %}
+    <body>
+  <section id="not-found">
+    <div class="circles">
+      <p>404<br>
+       <small>СТРАНИЦА НЕ НАЙДЕНА</small>
+      </p>
+      <span class="circle big"></span>
+      <span class="circle med"></span>
+      <span class="circle small"></span>
+    </div>
+  </section>
+ </body>
+{% endblock %}
