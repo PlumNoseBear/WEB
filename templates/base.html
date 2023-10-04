@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<head>                  <meta charset="utf-8">    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-                                                    
+<head>                  <meta charset="utf-8">    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">                                         
 <html lang="ru">
 </head>
-<body>
-  {% block content %}{% endblock %}
-</body>
+{% block content %}{% endblock %}
 </html>

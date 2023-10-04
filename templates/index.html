@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block content %}
 <head>
-    <title>File Upload and Download</title>
+    <title>УИИ ЛАНДШАФТ СТАЖИРОВКА</title>
 </head>
 <body>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class="flashes">
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-
-    <h2>Upload File</h2>
+    <h2>Загрузить файл</h2>
     <form method="POST" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="Upload">
     </form>
 
-    <h2>Uploaded Files:</h2>
-    <ul>
+    <h2>Воспроизвести файл</h2>
+        <ul>
         {% for file in files %}
-        <li><a href="{{ url_for('upload_file', filename=file) }}">{{ file }}</a></li>
-        {% endfor %}
-    </ul>
+        <li><button onclick="location.href='{{ url_for('play', filename=file) }}'">{{file}}</button></li>
+            {% endfor %}
+        </ul> 
 </body>
-</html
+{% endblock %}

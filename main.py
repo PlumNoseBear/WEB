@@ -36,21 +36,13 @@ def upload_file():
             redirect(request.url)
             # сохраняем файл
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-            return redirect(url_for('/success'))
+            return redirect(url_for('/'))
     play_files = os.listdir(app.config['UPLOAD_FOLDER'])
     return render_template('index.html', files=play_files)
     
   
 def download_file():
   ...
-
-@app.route('/success', methods = ['POST']) 
-def success(): 
-    if request.method == 'POST': 
-        f = request.files['file'] 
-        f.save(file.filename)
-        flash(f"Загружен файл {filename}")
-    return render_template("index.html")
 
 @app.route('/play/<filename>')
 def play(filename):
