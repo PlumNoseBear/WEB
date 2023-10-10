@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
 body {
   background-image:
     url('../img/back-for-site.jpg');
@@ -8,4 +9,7 @@ body {
       }
 h2 {
 text-align: center;
-}
+font-family: 'Rubik Dirt', cursive;
+font-weight: 200;
+  color: #f1efe9;
+    }
