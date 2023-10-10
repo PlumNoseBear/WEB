@@ -1,20 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 <head>
+  <style>
+        ul {list-style-type: none;}
+  </style>
     <title>УИИ ЛАНДШАФТ СТАЖИРОВКА</title>
 </head>
 <body>
     <h2>Загрузить файл</h2>
     <form method="POST" enctype="multipart/form-data">
         <input type="file" name="file">
-        <input type="submit" value="Upload">
+        <input type="submit" value="Загрузить">
     </form>
 
     <h2>Воспроизвести файл</h2>
         <ul>
-        {% for file in files %}
+        {% for file in v_files %}
         <li><button onclick="location.href='{{ url_for('play', filename=file) }}'">{{file}}</button></li>
             {% endfor %}
         </ul> 
+
+      <h2>Скачать файл</h2>
+        <ul>
+        {% for file in d_files %}
+        <li><button onclick="location.href='{{ url_for('download', filename=file) }}'">{{file}}</button></li>
+            {% endfor %}
+        </ul> 
+
 </body>
 {% endblock %}
